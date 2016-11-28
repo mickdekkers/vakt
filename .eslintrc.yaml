@@ -1,0 +1,50 @@
+---
+root: true
+parser: babel-eslint
+parserOptions:
+  sourceType: module
+plugins:
+  - ava
+env:
+  shared-node-browser: true
+extends:
+  - airbnb-base
+  - plugin:ava/recommended
+rules:
+  # Require UNIX line endings
+  linebreak-style:
+    - error
+    - unix
+  # Require function expressions to have a name (to aid in debugging)
+  func-names:
+    - error
+    - always
+  # Allow the use of console.log/warn/error, etc.
+  no-console: warn
+  # Don't require explicit file extensions for .js imports
+  import/extensions:
+    - error
+    - js: never
+  # Require a space before function parenthesis
+  space-before-function-paren:
+    - error
+    - always
+  # Make no-unused-vars a warning instead of an error
+  # and allow unused arguments for e.g. Promises
+  no-unused-vars:
+    - warn
+    - args: none
+  # Allow parameter reassignment for more concise code
+  no-param-reassign: off
+  # Allow dangling underscores
+  no-underscore-dangle: off
+  # Allow unary operators
+  no-plusplus: off
+  # Require trailing commas in all multiline object literals except functions
+  comma-dangle:
+    - error
+    - arrays: always-multiline
+      objects: always-multiline
+      imports: always-multiline
+      exports: always-multiline
+      functions: ignore

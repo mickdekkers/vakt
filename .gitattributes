@@ -1,0 +1,7 @@
+# Perform LF normalization on all text files
+* text eol=lf
+
+# These files are binary and should be left untouched
+*.png binary
+*.jpg binary
+*.jpeg binary
