@@ -191,3 +191,26 @@ test('vakt.check calls `is` check for the `string` type correctly', (t) => {
     vakt.check({ string }, 'string');
   }, TypeError);
 });
+
+test('vakt.check supports checking multiple variables with one call', (t) => {
+  t.notThrows(() => {
+    const quote = 'I know words';
+    const greetings = ['Hello!', 'Bonjour!'];
+    const dozen = 12;
+    vakt.check([
+      [{ quote }, 'string'],
+      [{ greetings }, 'array'],
+      [{ dozen }, 'number'],
+    ]);
+  });
+  t.throws(() => {
+    const quote = 'I know words';
+    const greetings = false;
+    const dozen = 12;
+    vakt.check([
+      [{ quote }, 'string'],
+      [{ greetings }, 'array'],
+      [{ dozen }, 'number'],
+    ]);
+  }, /greetings/);
+});
