@@ -37,7 +37,7 @@ test('vakt.VERSION === package.json version', async (t) => {
   t.is(vakt.VERSION, packageVersion);
 });
 
-test('variableIsValid validates whether a variable is correctly passed', (t) => {
+test('variableIsValid validates whether a variable is passed correctly', (t) => {
   const array = ['nope'];
   const boolean = true;
   const emptyObject = {};
@@ -64,6 +64,40 @@ test('formatErrorMessage returns a correctly formatted error message', (t) => {
   t.is(formatErrorMessage('names', 'array'), 'names must be an array');
   t.is(formatErrorMessage('predicate', 'function'), 'predicate must be a function');
   t.is(formatErrorMessage('snuggles', 'cat'), 'snuggles must be a cat');
+});
+
+test('vakt.check throws if the variable is not passed correctly', (t) => {
+  const invalidVariableErrorMessage = /as an object with a single property/;
+
+  t.throws(() => {
+    const array = ['nope'];
+    vakt.check(array, 'array');
+  }, invalidVariableErrorMessage);
+  t.throws(() => {
+    const boolean = true;
+    vakt.check(boolean, 'boolean');
+  }, invalidVariableErrorMessage);
+  t.throws(() => {
+    const emptyObject = {};
+    vakt.check(emptyObject, 'object');
+  }, invalidVariableErrorMessage);
+});
+
+test('vakt.check throws if the type is not passed as a string', (t) => {
+  const invalidTypeErrorMessage = /as a string/;
+
+  t.throws(() => {
+    const boolean = true;
+    vakt.check({ boolean }, false);
+  }, invalidTypeErrorMessage);
+  t.throws(() => {
+    const array = ['Hello!'];
+    vakt.check({ array }, []);
+  }, invalidTypeErrorMessage);
+  t.throws(() => {
+    const func = x => x;
+    vakt.check({ func }, y => y);
+  }, invalidTypeErrorMessage);
 });
 
 test('vakt.check calls `is` check for the `array` type correctly', (t) => {
