@@ -6,6 +6,12 @@
   A modern type guard utility for Node.js
 </p>
 
+<p align="center">
+  <a href="https://travis-ci.org/SoullessWaffle/vakt"><img alt="Build Status" src="https://travis-ci.org/SoullessWaffle/vakt.svg?branch=master"></a>
+  <a href="https://coveralls.io/github/SoullessWaffle/vakt?branch=master"><img src="https://coveralls.io/repos/github/SoullessWaffle/vakt/badge.svg?branch=master" alt="Coverage Status"></a>
+  <a href="https://www.npmjs.com/package/vakt"><img alt="Version" src="https://img.shields.io/npm/v/vakt.svg"></a>
+</p>
+
 ## Installation
 
 Requires Node.js v6 [LTS] or greater.
