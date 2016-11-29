@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="vakt" src="header.svg" height="96">
+  <img alt="vakt" src="header.svg?raw=true" height="96">
 </p>
 
 <p align="center">
