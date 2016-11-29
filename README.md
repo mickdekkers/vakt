@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="vakt" src="header.svg?raw=true" height="96">
+  <img alt="vakt" src="https://github.com/soullesswaffle/vakt/blob/master/header.svg?raw=true" height="96">
 </p>
 
 <p align="center">
