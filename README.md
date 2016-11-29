@@ -1,5 +1,5 @@
 <p align="center">
-  <span style="font-size: 7em;">vakt</span>
+  <img alt="vakt" src="header.svg" height="96">
 </p>
 
 <p align="center">
