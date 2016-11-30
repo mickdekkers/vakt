@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "vakt",
   "version": "0.1.0",
   "main": "lib/index.js",
