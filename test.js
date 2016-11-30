@@ -2,7 +2,7 @@
 
 import fsp from 'fs-promise';
 import test from 'ava';
-import vakt, { variableIsValid, getArticle, formatErrorMessage } from './lib/index';
+import vakt from './index';
 
 test.serial('vakt starts without any custom types defined', (t) => {
   t.is(Object.keys(vakt.customTypes).length, 0);
@@ -44,26 +44,26 @@ test('variableIsValid validates whether a variable is passed correctly', (t) => 
   const objectWithTooManyProperties = { a: array, b: boolean };
   const validObject = { a: array };
 
-  t.false(variableIsValid(array));
-  t.false(variableIsValid(boolean));
-  t.false(variableIsValid(emptyObject));
-  t.false(variableIsValid(objectWithTooManyProperties));
-  t.true(variableIsValid(validObject));
+  t.false(vakt._variableIsValid(array));
+  t.false(vakt._variableIsValid(boolean));
+  t.false(vakt._variableIsValid(emptyObject));
+  t.false(vakt._variableIsValid(objectWithTooManyProperties));
+  t.true(vakt._variableIsValid(validObject));
 });
 
 test('getArticle returns the proper article for a word (most of the time)', (t) => {
-  t.is(getArticle('array'), 'an');
-  t.is(getArticle('boolean'), 'a');
-  t.is(getArticle('date'), 'a');
-  t.is(getArticle('cat'), 'a');
-  t.is(getArticle('integer'), 'an');
-  t.is(getArticle('regexp'), 'a');
+  t.is(vakt._getArticle('array'), 'an');
+  t.is(vakt._getArticle('boolean'), 'a');
+  t.is(vakt._getArticle('date'), 'a');
+  t.is(vakt._getArticle('cat'), 'a');
+  t.is(vakt._getArticle('integer'), 'an');
+  t.is(vakt._getArticle('regexp'), 'a');
 });
 
 test('formatErrorMessage returns a correctly formatted error message', (t) => {
-  t.is(formatErrorMessage('names', 'array'), 'names must be an array');
-  t.is(formatErrorMessage('predicate', 'function'), 'predicate must be a function');
-  t.is(formatErrorMessage('snuggles', 'cat'), 'snuggles must be a cat');
+  t.is(vakt._formatErrorMessage('names', 'array'), 'names must be an array');
+  t.is(vakt._formatErrorMessage('predicate', 'function'), 'predicate must be a function');
+  t.is(vakt._formatErrorMessage('snuggles', 'cat'), 'snuggles must be a cat');
 });
 
 test('vakt.check throws if the variable is not passed correctly', (t) => {

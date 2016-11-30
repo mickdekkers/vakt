@@ -1,4 +1,4 @@
-import is from 'is_js';
+const is = require('is_js');
 
 const vakt = {};
 vakt.VERSION = '0.1.0';
@@ -21,14 +21,14 @@ vakt.types = [
 vakt.customTypes = {};
 
 // helper function which validates variable argument to make sure it matches { name: value }
-export const variableIsValid = variable =>
+vakt._variableIsValid = variable =>
   vakt.is.object(variable) && vakt.is.not.array(variable) && Object.keys(variable).length === 1;
 
 // helper function which returns the proper article for a word (most of the time)
-export const getArticle = word => (['a', 'e', 'i', 'o', 'u', 'y'].includes(word[0]) ? 'an' : 'a');
+vakt._getArticle = word => (['a', 'e', 'i', 'o', 'u', 'y'].includes(word[0]) ? 'an' : 'a');
 
 // helper function which formats error messages
-export const formatErrorMessage = (name, type) => `${name} must be ${getArticle(type)} ${type}`;
+vakt._formatErrorMessage = (name, type) => `${name} must be ${vakt._getArticle(type)} ${type}`;
 
 vakt.check = (variable, type) => {
   // handle multiple checks at once
@@ -38,7 +38,7 @@ vakt.check = (variable, type) => {
   }
 
   // sanity checks
-  if (!variableIsValid(variable)) throw new Error('Variable must be passed to vakt as an object with a single property');
+  if (!vakt._variableIsValid(variable)) throw new Error('Variable must be passed to vakt as an object with a single property');
   if (vakt.is.not.string(type)) throw new Error('Type must be passed to vakt as a string');
 
   const name = Object.keys(variable)[0];
@@ -57,8 +57,8 @@ vakt.check = (variable, type) => {
 
   if (!valid) {
     // throw with a formatted error message if the type is invalid
-    throw new TypeError(formatErrorMessage(name, type));
+    throw new TypeError(vakt._formatErrorMessage(name, type));
   }
 };
 
-export default vakt;
+module.exports = vakt;
