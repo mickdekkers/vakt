@@ -5,6 +5,17 @@
   "main": "lib/index.js",
   "author": "Soullesswaffle",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soullesswaffle/vakt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/soullesswaffle/vakt/issues"
+  },
+  "homepage": "https://github.com/soullesswaffle/vakt#readme",
+  "engines": {
+    "node": "^6.0.0"
+  },
   "dependencies": {
     "is_js": "^0.9.0"
   },
