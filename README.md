@@ -44,7 +44,7 @@ vakt takes advantage of the [ES6/ES2015 property value shorthand][es6pvs] so you
 
 ### With Promises
 
-You can also use a vakt check in a Promise, since thrown errors automatically become rejections.
+You can also use vakt in Promises, since thrown errors automatically become rejections.
 
 ```js
 const vakt = require('vakt');
@@ -55,7 +55,6 @@ const delay = (ms) => {
 
     // if we reach this part, ms is guaranteed to be a number
     setTimeout(resolve, ms);
-    resolve();
   });
 };
 
@@ -72,7 +71,7 @@ delay(false).catch((err) => {
 
 ### Define custom types
 
-vakt lets you create your own type checks by providing it a validation function that returns true or false.
+vakt lets you create your own type checks by providing it with a validation function that returns true or false.
 
 ```js
 const vakt = require('vakt');
@@ -140,7 +139,7 @@ The type to validate against, passed as a string.
 
 Type: `array`
 
-An array of the types vakt can check out of the box:
+An array containing the types vakt can check out of the box:
 ```js
 [
   'array',
