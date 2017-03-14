@@ -1,7 +1,7 @@
 const is = require('is_js');
 
 const vakt = {};
-vakt.VERSION = '0.1.0';
+vakt.VERSION = require('./package.json').version;
 
 vakt.is = is;
 
