@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/soullesswaffle/vakt#readme",
   "engines": {
-    "node": "^6.0.0"
+    "node": ">=6.0.0"
   },
   "dependencies": {
     "is_js": "^0.9.0"
