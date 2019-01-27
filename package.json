@@ -28,7 +28,7 @@
     "report": "nyc report --reporter=html"
   },
   "devDependencies": {
-    "ava": "^0.18.2",
+    "ava": "^1.2.0",
     "coveralls": "^2.11.15",
     "eslint": "^3.11.0",
     "eslint-config-airbnb-base": "^11.0.1",
